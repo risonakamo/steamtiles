@@ -31,7 +31,6 @@ function attachButtons()
         if (!pagebuttons[x].attached)
         {
             pagebuttons[x].addEventListener("click",(e)=>{
-                console.log("hey");
                 replaceImages();
             });
         }

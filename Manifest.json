@@ -1,10 +1,10 @@
 {
     "manifest_version":2,
     "name":"steamtile",
-    "version":"2.2",
+    "version":"2.2.1",
     "description":"expand steam list views",
 
-    "permissions":["https://store.steampowered.com/*"],
+    "permissions":["https://store.steampowered.com/search/*"],
 
     "web_accessible_resources":[
         "steamtile.css"
@@ -12,7 +12,7 @@
 
     "content_scripts":
     [{
-        "matches":["https://store.steampowered.com/*"],
+        "matches":["https://store.steampowered.com/search/*"],
         "js":["steamtile.js"],
         "run_at":"document_end"
     }]
