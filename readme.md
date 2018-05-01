@@ -10,4 +10,4 @@
 
 ページリンクはFIXEDにならせましたので、スクロールしてもページリンクは付きます。
 
-![](https://i.imgur.com/TFMR5jR.png) -> ![](https://i.imgur.com/yk5heLE.png)
+![](https://i.imgur.com/TFMR5jR.png) → ![](https://i.imgur.com/yk5heLE.png)
