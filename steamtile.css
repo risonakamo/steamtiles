@@ -1,0 +1,37 @@
+div.leftcol.large
+{
+    width: 100%;
+}
+
+#search_result_container
+{
+    width: 100%;
+    max-width: 100%;
+}
+
+#search_result_container a.search_result_row
+{
+    display: inline-block;
+    width: 400px;
+    height: auto;
+}
+
+#additional_search_options
+{
+    display: none;
+}
+
+.search_result_row .col
+{
+    height: auto;
+}
+
+.search_result_row .col.search_capsule
+{
+    width: 100%;
+}
+
+.search_result_row .col.search_capsule img
+{
+    width: 100%;
+}
