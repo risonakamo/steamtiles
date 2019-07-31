@@ -15,9 +15,12 @@ function replaceImages()
 
     _currsearchrows=searchrows;
 
+    var currentElement;
     for (var x=0,l=searchrows.length;x<l;x++)
     {
-        searchrows[x].firstElementChild.firstElementChild.src=`https://steamcdn-a.akamaihd.net/steam/apps/${searchrows[x].href.replace(/.*\/(\d+)\/.*/,"$1")}/header.jpg`;
+        currentElement=searchrows[x].firstElementChild.firstElementChild;
+        currentElement.src=`https://steamcdn-a.akamaihd.net/steam/apps/${searchrows[x].href.replace(/.*\/(\d+)\/.*/,"$1")}/header.jpg`;
+        currentElement.srcset=currentElement.src;
     }
 
     attachButtons();
