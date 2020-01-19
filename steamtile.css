@@ -13,13 +13,20 @@ div.leftcol.large
 #search_result_container a.search_result_row
 {
     display: inline-block;
-    width: 400px;
+    width: 49%;
     height: auto;
 }
 
 #additional_search_options
 {
     display: none;
+}
+
+body.v6 .page_content
+{
+    width: 100%;
+	padding: 0 7% 0 7%;
+	box-sizing: border-box;
 }
 
 /*-- inside search result tile --*/
