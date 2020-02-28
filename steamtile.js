@@ -35,6 +35,8 @@ function main()
     observer.observe(document.querySelector("#search_resultsRows"),{
         childList:true
     });
+
+    replaceImages();
 }
 
 main();
