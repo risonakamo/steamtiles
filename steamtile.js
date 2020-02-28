@@ -1,19 +1,8 @@
 document.head.insertAdjacentHTML("beforeend",`<link rel="stylesheet" href="${chrome.runtime.getURL("steamtile.css")}">`);
 
-var _currsearchrows;
 function replaceImages()
 {
     var searchrows=document.querySelectorAll(".search_result_row");
-
-    if ((_currsearchrows && searchrows[0]==_currsearchrows[0]) || searchrows.length==0)
-    {
-        setTimeout(()=>{
-            replaceImages();
-        },100);
-        return;
-    }
-
-    _currsearchrows=searchrows;
 
     var currentElement;
     for (var x=0,l=searchrows.length;x<l;x++)
@@ -22,8 +11,6 @@ function replaceImages()
         currentElement.src=`https://steamcdn-a.akamaihd.net/steam/apps/${searchrows[x].href.replace(/.*\/(\d+)\/.*/,"$1")}/header.jpg`;
         currentElement.srcset=currentElement.src;
     }
-
-    attachButtons();
 }
 
 function attachButtons()
@@ -41,4 +28,13 @@ function attachButtons()
     }
 }
 
-replaceImages();
+function main()
+{
+    var observer=new MutationObserver(replaceImages);
+
+    observer.observe(document.querySelector("#search_resultsRows"),{
+        childList:true
+    });
+}
+
+main();

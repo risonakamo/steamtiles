@@ -1,7 +1,7 @@
 {
     "manifest_version":2,
     "name":"steamtile",
-    "version":"2.2.3",
+    "version":"2.3.0",
     "description":"expand steam list views",
 
     "permissions":["https://store.steampowered.com/search/*"],
