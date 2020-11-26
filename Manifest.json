@@ -1,19 +1,20 @@
 {
     "manifest_version":2,
     "name":"steamtile",
-    "version":"2.3.1",
+    "version":"3.0.0",
     "description":"expand steam list views",
+    "homepage_url":"https://github.com/risonakamo/steamtiles",
 
     "permissions":["https://store.steampowered.com/search/*"],
 
     "web_accessible_resources":[
-        "steamtile.css"
+        "build/steamtile-build.css"
     ],
 
     "content_scripts":
     [{
         "matches":["https://store.steampowered.com/search/*"],
-        "js":["steamtile.js"],
+        "js":["build/steamtile-build.js"],
         "run_at":"document_end"
     }]
 }
