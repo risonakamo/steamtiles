@@ -1,0 +1,69 @@
+/*-- main page top and tile outside --*/
+div.leftcol.large
+{
+    width: 100%;
+}
+
+#search_result_container
+{
+    width: 100%;
+    max-width: 100%;
+
+    a.search_result_row
+    {
+        display: inline-block;
+        width: 49%;
+        height: auto;
+    }
+}
+
+#additional_search_options
+{
+    display: none;
+}
+
+body.v6 .page_content
+{
+    width: 100%;
+	padding: 0 7% 0 7%;
+	box-sizing: border-box;
+}
+
+/*-- inside search result tile --*/
+.search_result_row
+{
+    .col
+    {
+        height: auto;
+    }
+
+    .col.search_capsule
+    {
+        width: 100%;
+
+        img
+        {
+            width: 100%;
+        }
+    }
+}
+
+/*-- page buttons --*/
+.search_pagination_right
+{
+    position: fixed;
+    bottom: 12px;
+    right: 18px;
+    padding: 12px;
+    box-sizing: border-box;
+    z-index: 1000;
+    background: linear-gradient(to bottom,rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.5) 100%);
+    border-radius: 3px;
+
+    .pagebtn
+    {
+        height: 36px;
+        line-height: 36px;
+        background-color: rgba(103,193,245,0.3);
+    }
+}
