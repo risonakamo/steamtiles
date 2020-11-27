@@ -2,12 +2,20 @@ import {DateTime} from "luxon";
 
 import "./steamtile.less";
 
+var _stallObserver:boolean=false;
+
 function main()
 {
     document.head.insertAdjacentHTML("beforeend",
         `<link rel="stylesheet" href="${chrome.runtime.getURL("build/steamtile-build.css")}">`);
 
     var observer:MutationObserver=new MutationObserver(()=>{
+        if (_stallObserver)
+        {
+            _stallObserver=false;
+            return;
+        }
+
         replaceImages();
         insertDateHeaders();
     });
@@ -65,12 +73,10 @@ function insertDateHeaders():void
         return !(x.date?.equals(tiles[i-1].date!));
     });
 
-    // for (var x=0,l=tiles.length;x<l;x++)
-    // {
-    //     insertHeader(tiles[x].tile);
-    // }
-
-    console.log(tiles);
+    for (var x=0,l=tiles.length;x<l;x++)
+    {
+        insertHeader(tiles[x]);
+    }
 }
 
 // given the date string of a tile, which is in a special format, attempt to create a DateTime from that string.
@@ -85,9 +91,12 @@ function resolveDate(dateString:string):DateTime|null
     return DateTime.fromJSDate(new Date(dateString));
 }
 
-function insertHeader(targetTile:HTMLElement):void
+// insert a date header given a target dated tile.
+function insertHeader(targetTile:DatedTile):void
 {
-    targetTile.insertAdjacentHTML("beforebegin",`<h1 class="day-header">HELLO</h1>`);
+    _stallObserver=true;
+    var datetext:string=targetTile.date!.toFormat("yyyy LLL dd");
+    targetTile.tile.insertAdjacentHTML("beforebegin",`<h1 class="day-header">${datetext}</h1>`);
 }
 
 main();
