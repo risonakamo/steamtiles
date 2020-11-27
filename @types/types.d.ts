@@ -2,5 +2,5 @@
 interface DatedTile
 {
     tile:HTMLLinkElement
-    date:DateTime
+    date:DateTime|null //null if invalid
 }

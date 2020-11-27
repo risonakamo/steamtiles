@@ -37,6 +37,7 @@ function replaceImages():void
     }
 }
 
+// target all tile elements and append day headers for each day
 function insertDateHeaders():void
 {
     var tileElements:HTMLLinkElement[]=Array.from(document.querySelectorAll(".search_result_row"));
@@ -44,11 +45,28 @@ function insertDateHeaders():void
     var tiles:DatedTile[]=tileElements.map((x:HTMLLinkElement)=>{
         return {
             tile:x,
-            date:DateTime.fromJSDate(new Date((x.querySelector(".search_released")! as HTMLElement).innerText))
+            date:resolveDate((x.querySelector(".search_released")! as HTMLElement).innerText)
         };
     });
 
+    // filter out tiles with invalid dates
+    tiles=tiles.filter((x:DatedTile)=>{
+        return x.date && x.date.isValid;
+    });
+
     console.log(tiles);
+}
+
+// given the date string of a tile, which is in a special format, attempt to create a DateTime from that string.
+// if the string is invalid, or should be considered invalid, returns null.
+function resolveDate(dateString:string):DateTime|null
+{
+    if (!/.* \d+, \d+/.test(dateString))
+    {
+        return null;
+    }
+
+    return DateTime.fromJSDate(new Date(dateString));
 }
 
 main();
