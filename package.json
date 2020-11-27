@@ -2,11 +2,14 @@
   "name": "steamtiles",
   "version": "3.0.0-DEV",
   "description": "expand steam tile list views",
-  "dependencies": {},
+  "dependencies": {
+    "luxon": "^1.25.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@babel/preset-typescript": "^7.12.7",
     "@types/chrome": "0.0.126",
+    "@types/luxon": "^1.25.0",
     "babel-loader": "^8.2.1",
     "css-loader": "^5.0.1",
     "fork-ts-checker-webpack-plugin": "^6.0.3",
