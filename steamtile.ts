@@ -54,6 +54,22 @@ function insertDateHeaders():void
         return x.date && x.date.isValid;
     });
 
+    // reject all tiles where the previous date is the same as the current tile's date.
+    tiles=tiles.filter((x:DatedTile,i:number)=>{
+        // always take first tile
+        if (i==0)
+        {
+            return true;
+        }
+
+        return !(x.date?.equals(tiles[i-1].date!));
+    });
+
+    // for (var x=0,l=tiles.length;x<l;x++)
+    // {
+    //     insertHeader(tiles[x].tile);
+    // }
+
     console.log(tiles);
 }
 
@@ -67,6 +83,11 @@ function resolveDate(dateString:string):DateTime|null
     }
 
     return DateTime.fromJSDate(new Date(dateString));
+}
+
+function insertHeader(targetTile:HTMLElement):void
+{
+    targetTile.insertAdjacentHTML("beforebegin",`<h1 class="day-header">HELLO</h1>`);
 }
 
 main();
