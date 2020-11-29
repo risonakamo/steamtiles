@@ -17,6 +17,7 @@ function main()
         }
 
         replaceImages();
+        removeDateHeaders();
         insertDateHeaders();
     });
 
@@ -25,6 +26,7 @@ function main()
     });
 
     replaceImages();
+    removeDateHeaders();
     insertDateHeaders();
 }
 
@@ -97,6 +99,18 @@ function insertHeader(targetTile:DatedTile):void
     _stallObserver=true;
     var datetext:string=targetTile.date!.toFormat("yyyy LLL dd");
     targetTile.tile.insertAdjacentHTML("beforebegin",`<h1 class="day-header">${datetext}</h1>`);
+}
+
+// target and remove all date header elements
+function removeDateHeaders():void
+{
+    _stallObserver=true;
+    var dateHeaders:NodeListOf<HTMLElement>=document.querySelectorAll(".day-header");
+
+    for (var x=0,l=dateHeaders.length;x<l;x++)
+    {
+        dateHeaders[x].remove();
+    }
 }
 
 main();
