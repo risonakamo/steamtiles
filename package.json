@@ -1,6 +1,6 @@
 {
   "name": "steamtiles",
-  "version": "3.0.0-DEV",
+  "version": "3.0.0",
   "description": "expand steam tile list views",
   "dependencies": {
     "luxon": "^1.25.0"
@@ -22,6 +22,7 @@
     "webpackbar": "^5.0.0-3"
   },
   "scripts": {
-    "watch": "webpack --watch"
+    "watch": "webpack --watch",
+    "build":"webpack"
   }
 }
